@@ -53,7 +53,8 @@ public class MysqlGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/mp-genrator/src/main/java");
+//        gc.setOutputDir(projectPath + "/cj-order-datasource/src/main/java");
+        gc.setOutputDir(projectPath + "/cj-order-datasource");
         gc.setAuthor("zlb");
         gc.setOpen(false);
         gc.setSwagger2(true);
@@ -63,7 +64,7 @@ public class MysqlGenerator {
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl("jdbc:mysql://localhost:3306/sakila?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("a123456");
         mpg.setDataSource(dsc);
@@ -71,11 +72,11 @@ public class MysqlGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("order"));//模块名
-        pc.setModuleName("order");//模块名
-        pc.setParent("com.cujia");
+        pc.setModuleName("");//模块名
+        pc.setParent("com.cujia.order.datasource");
         pc.setEntity("entity.po.system");
         pc.setService("service");
-        pc.setController("web.controller");
+        //pc.setController("web.controller");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -90,7 +91,7 @@ public class MysqlGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + "/mp-genrator/src/main/resources/mapper/" + pc.getModuleName()
+                return projectPath + "/cj-order-datasource/src/main/resources/mapper/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
