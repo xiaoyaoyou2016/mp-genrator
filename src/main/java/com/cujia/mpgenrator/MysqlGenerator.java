@@ -74,7 +74,7 @@ public class MysqlGenerator {
         //pc.setModuleName(scanner("order"));//模块名
         pc.setModuleName("");//模块名
         pc.setParent("com.cujia.order.datasource");
-        pc.setEntity("entity.po.system");
+        pc.setEntity("entity.po.user");
         pc.setService("service");
         //pc.setController("web.controller");
         mpg.setPackageInfo(pc);
@@ -91,7 +91,7 @@ public class MysqlGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + "/cj-order-datasource/src/main/resources/mapper/" + pc.getModuleName()
+                return projectPath + "/cj-order-datasource/resources/mapper/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -107,7 +107,7 @@ public class MysqlGenerator {
         strategy.setEntityLombokModel(true);
 //        strategy.setSuperControllerClass("com.baomidou.mybatisplus.samples.generator.common.BaseController");
         //strategy.setInclude(scanner("category"));//表名
-        strategy.setInclude("category","city","actor","country");//需要生成的表
+        strategy.setInclude("actor","country");//需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
