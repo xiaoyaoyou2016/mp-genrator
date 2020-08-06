@@ -73,7 +73,7 @@ public class MysqlGenerator {
         //pc.setModuleName(scanner("order"));//模块名
         pc.setModuleName("order");//模块名
         pc.setParent("com.cujia");
-        pc.setEntity("domain.po.system");
+        pc.setEntity("entity.po.system");
         pc.setService("service");
         pc.setController("web.controller");
         mpg.setPackageInfo(pc);
@@ -106,7 +106,7 @@ public class MysqlGenerator {
         strategy.setEntityLombokModel(true);
 //        strategy.setSuperControllerClass("com.baomidou.mybatisplus.samples.generator.common.BaseController");
         //strategy.setInclude(scanner("category"));//表名
-        strategy.setInclude("category","city");//需要生成的表
+        strategy.setInclude("category","city","actor","country");//需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
